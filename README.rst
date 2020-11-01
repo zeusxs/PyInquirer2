@@ -5,7 +5,7 @@ PyInquirer2
 
 **Github is starting to invite developers in from the GitHub Sponsors waitlist!**
 
-PyInquirer2 is fork from `PyInquirer <https://github.com/CITGuru/PyInquirer>`, PyInquirer2 is a collection of common interactive command line user interfaces. 
+PyInquirer2 is fork from `PyInquirer <https://github.com/CITGuru/PyInquirer>`__, PyInquirer2 is a collection of common interactive command line user interfaces. 
 
 PyInquirer2 is comming! 
 -----------------
