@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from PyInquirer.prompts import list  # this import is necessary!
+from inquirer2.prompts import list  # this import is necessary!
 from .helpers import feed_app_with_input, keys
 
 

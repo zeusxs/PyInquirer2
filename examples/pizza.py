@@ -4,14 +4,11 @@
 * run example by writing `python example/pizza.py` in your console
 """
 from __future__ import print_function, unicode_literals
-
 import regex
 from pprint import pprint
 
 from prompt_toolkit.validation import Validator, ValidationError
-
-from PyInquirer import prompt
-
+from inquirer2 import prompt
 from style import custom_style_3
 
 

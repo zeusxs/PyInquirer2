@@ -5,8 +5,7 @@
 """
 from __future__ import print_function, unicode_literals
 
-from PyInquirer import prompt, print_json, Separator
-
+from inquirer2 import prompt, print_json, Separator
 from style import custom_style_2
 
 

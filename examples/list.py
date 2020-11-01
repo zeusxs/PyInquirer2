@@ -3,11 +3,9 @@
 list prompt example
 """
 from __future__ import print_function, unicode_literals
-
 from pprint import pprint
 
-from PyInquirer import prompt, Separator
-
+from inquirer2 import prompt, Separator
 from style import custom_style_2
 
 

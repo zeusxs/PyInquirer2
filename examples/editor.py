@@ -3,11 +3,9 @@
 * Editor prompt example
 """
 from pprint import pprint
-from PyInquirer import style_from_dict, Token, prompt, print_json
-from PyInquirer import Validator, ValidationError
+from inquirer2 import prompt, print_json
+
 from style import custom_style_2
-
-
 
 questions = [
     {

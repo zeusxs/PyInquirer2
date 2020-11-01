@@ -16,7 +16,7 @@ custom_style_2 = Style.from_dict({
     "separator": '#6C6C6C',
     "questionmark": '#FF9D00 bold',
     "focus": '#5F819D',
-    "checked": '#5F819D',
+    "checked": '#FF9D00',
     "pointer": '#FF9D00 bold',
     "instruction": '',  # default
     "answer": '#5F819D bold',

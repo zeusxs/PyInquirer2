@@ -3,7 +3,8 @@
 * example for expand question type
 * run example by typing `python example/checkbox.py` in your console
 """
-from PyInquirer import prompt, Separator, print_json
+from inquirer2 import prompt, Separator, print_json
+
 from style import custom_style_2
 
 # questions - 

@@ -20,7 +20,7 @@ from prompt_toolkit.application import Application
 from prompt_toolkit.shortcuts.prompt import PromptSession
 
 
-from PyInquirer import prompts, style_from_dict
+from inquirer2 import prompts, style_from_dict
 
 
 # http://code.activestate.com/recipes/52308-the-simple-but-handy-collector-of-a-bunch-of-named/?in=user-97991

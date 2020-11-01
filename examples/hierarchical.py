@@ -2,7 +2,7 @@
 """
 hierarchical prompt usage example
 """
-from PyInquirer import style_from_dict, prompt
+from inquirer2 import style_from_dict, prompt
 
 from style import custom_style_2
 
