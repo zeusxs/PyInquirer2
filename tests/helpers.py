@@ -19,7 +19,6 @@ from prompt_toolkit.application.current import create_app_session
 from prompt_toolkit.application import Application
 from prompt_toolkit.shortcuts.prompt import PromptSession
 
-
 from inquirer2 import prompts, style_from_dict
 
 
@@ -40,9 +39,7 @@ keys = Bunch(
     ENTER='\x0d',  # ControlM  (Identical to '\r')
     ESCAPE='\x1b',
     CONTROLC='\x03',
-    BACK='\x7f'
-)
-
+    BACK='\x7f')
 
 style = style_from_dict({
     "questionmark": '#FF9D00 bold',
@@ -87,8 +84,9 @@ def remove_ansi_escape_sequences(text):
     #return regex.sub(r'(\x9b|\x1b\[)[0-?]*[ -\/]*[@-~]|[ ]*\r', '', text)
     text = regex.sub(r'(\x9b|\x1b\[)[0-?]*[ -\/]*[@-~]', '', text)
     text = regex.sub(r'[ \r]*\n', '\n', text)  # also clean up the line endings
-    
+
     return text
+
 
 # helper for running sut as subprocess within pty
 # does two things
@@ -97,7 +95,6 @@ def remove_ansi_escape_sequences(text):
 
 # docu:
 # http://blog.fizyk.net.pl/blog/gathering-tests-coverage-for-subprocesses-in-python.html
-
 
 PY3 = sys.version_info[0] >= 3
 
@@ -111,12 +108,12 @@ class SimplePty(PtyProcess):
     This class exposes a similar interface to :class:`PtyProcess`, but its read
     methods return unicode, and its :meth:`write` accepts unicode.
     """
-
     def __init__(self, pid, fd, encoding='utf-8', codec_errors='strict'):
         super(SimplePty, self).__init__(pid, fd)
         self.encoding = encoding
         self.codec_errors = codec_errors
-        self.decoder = codecs.getincrementaldecoder(encoding)(errors=codec_errors)
+        self.decoder = codecs.getincrementaldecoder(encoding)(
+            errors=codec_errors)
 
     def read(self, size=1024):
         """Read at most ``size`` bytes from the pty, return them as unicode.
@@ -171,9 +168,16 @@ class SimplePty(PtyProcess):
         return self.write(s)
 
     @classmethod
-    def spawn(
-            cls, argv, cwd=None, env=None, echo=False, preexec_fn=None,
-            dimensions=(24, 80), skip_cr=True, skip_ansi=True, timeout=3.0):
+    def spawn(cls,
+              argv,
+              cwd=None,
+              env=None,
+              echo=False,
+              preexec_fn=None,
+              dimensions=(24, 80),
+              skip_cr=True,
+              skip_ansi=True,
+              timeout=3.0):
         """
 
         :param argv:
@@ -203,7 +207,8 @@ class SimplePty(PtyProcess):
         buf = ''
         while (end_time - time.time()) > 0.0:
             # switch to nonblocking read
-            reads, _, _ = select.select([self.fd], [], [], end_time - time.time())
+            reads, _, _ = select.select([self.fd], [], [],
+                                        end_time - time.time())
             if len(reads) > 0:
                 try:
                     raw_buf = self.read()
@@ -217,7 +222,7 @@ class SimplePty(PtyProcess):
                     break
             else:
                 # do not eat up CPU when waiting for the timeout to expire
-                time.sleep(self.timeout/10)
+                time.sleep(self.timeout / 10)
         #print(repr(buf))  # debug ansi code handling
         assert buf == text
 
@@ -229,7 +234,8 @@ class SimplePty(PtyProcess):
         prog = regex.compile(pattern)
         while (end_time - time.time()) > 0.0:
             # switch to nonblocking read
-            reads, _, _ = select.select([self.fd], [], [], end_time - time.time())
+            reads, _, _ = select.select([self.fd], [], [],
+                                        end_time - time.time())
             if len(reads) > 0:
                 try:
                     buf = remove_ansi_escape_sequences(buf + self.read())
@@ -240,7 +246,7 @@ class SimplePty(PtyProcess):
                     return True
             else:
                 # do not eat up CPU when waiting for the timeout to expire
-                time.sleep(self.timeout/10)
+                time.sleep(self.timeout / 10)
         assert prog.match(buf) is not None, \
             'output was:\n%s\nexpect regex pattern:\n%s' % (buf, pattern)
 
@@ -265,4 +271,5 @@ def create_example_fixture(example):
             #if e.errno != 5:
             #    raise
         p.wait()  # without wait() the coverage info never arrives
+
     return example_app

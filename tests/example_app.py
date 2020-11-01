@@ -4,7 +4,6 @@ example app to test running an app as subprocess within pty
 """
 import sys, time
 
-
 PY3 = sys.version_info[0] >= 3
 
 if PY3:

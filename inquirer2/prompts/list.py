@@ -75,8 +75,8 @@ class InquirerControl(FormattedTextControl):
             if isinstance(choice[0], Separator):
                 tokens.append(('class:separator', '  %s\n' % choice[0]))
             else:
-                tokens.append(('class:pointer' if selected else '', ' \u276f ' if selected
-                else '   '))
+                tokens.append(('class:pointer' if selected else '',
+                               ' \u276f ' if selected else '   '))
                 if selected:
                     tokens.append(('[SetCursorPosition]', ''))
                 if choice[2]:  # disabled
@@ -84,11 +84,11 @@ class InquirerControl(FormattedTextControl):
                                    '- %s (%s)' % (choice[0], choice[2])))
                 else:
                     try:
-                        tokens.append(('class:focus' if selected else '', str(choice[0]),
-                                    select_item))
+                        tokens.append(('class:focus' if selected else '',
+                                       str(choice[0]), select_item))
                     except:
-                        tokens.append(('class:focus' if selected else '', choice[0],
-                                    select_item))
+                        tokens.append(('class:focus' if selected else '',
+                                       choice[0], select_item))
                 tokens.append(('', '\n'))
 
         # prepare the select choices
@@ -127,14 +127,12 @@ def question(message, **kwargs):
 
     # assemble layout
     layout = HSplit([
-        Window(height=D.exact(1),
-               content=FormattedTextControl(get_prompt_tokens),
-               always_hide_cursor=True,
+        Window(
+            height=D.exact(1),
+            content=FormattedTextControl(get_prompt_tokens),
+            always_hide_cursor=True,
         ),
-        ConditionalContainer(
-            Window(ic),
-            filter=~IsDone()
-        )
+        ConditionalContainer(Window(ic), filter=~IsDone())
     ])
 
     # key bindings
@@ -149,8 +147,9 @@ def question(message, **kwargs):
     @kb.add('down', eager=True)
     def move_cursor_down(event):
         def _next():
-            ic.selected_option_index = (
-                (ic.selected_option_index + 1) % ic.choice_count)
+            ic.selected_option_index = ((ic.selected_option_index + 1) %
+                                        ic.choice_count)
+
         _next()
         while isinstance(ic.choices[ic.selected_option_index][0], Separator) or\
                 ic.choices[ic.selected_option_index][2]:
@@ -159,8 +158,9 @@ def question(message, **kwargs):
     @kb.add('up', eager=True)
     def move_cursor_up(event):
         def _prev():
-            ic.selected_option_index = (
-                (ic.selected_option_index - 1) % ic.choice_count)
+            ic.selected_option_index = ((ic.selected_option_index - 1) %
+                                        ic.choice_count)
+
         _prev()
         while isinstance(ic.choices[ic.selected_option_index][0], Separator) or \
                 ic.choices[ic.selected_option_index][2]:
@@ -171,9 +171,7 @@ def question(message, **kwargs):
         ic.answered = True
         event.app.exit(result=ic.get_selection()[1])
 
-    return Application(
-        layout=Layout(layout),
-        key_bindings=kb,
-        mouse_support=True,
-        style=style
-    )
+    return Application(layout=Layout(layout),
+                       key_bindings=kb,
+                       mouse_support=True,
+                       style=style)

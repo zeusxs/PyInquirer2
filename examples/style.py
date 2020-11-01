@@ -11,7 +11,6 @@ custom_style_1 = Style.from_dict({
     "question": '',
 })
 
-
 custom_style_2 = Style.from_dict({
     "separator": '#6C6C6C',
     "questionmark": '#FF9D00 bold',
@@ -22,7 +21,6 @@ custom_style_2 = Style.from_dict({
     "answer": '#5F819D bold',
     "question": '',
 })
-
 
 custom_style_3 = Style.from_dict({
     "questionmark": '#E91E63 bold',

@@ -9,7 +9,6 @@ from inquirer2 import prompt
 
 from style import custom_style_1
 
-
 questions = [
     {
         'type': 'confirm',
@@ -27,4 +26,3 @@ questions = [
 
 answers = prompt.prompt(questions, style=custom_style_1)
 pprint(answers)
-

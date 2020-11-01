@@ -26,18 +26,20 @@ def setup_validator(kwargs):
         if issubclass(validate_prompt, Validator):
             kwargs['validator'] = validate_prompt()
         elif callable(validate_prompt):
+
             class _InputValidator(Validator):
                 def validate(self, document):
                     #print('validation!!')
                     verdict = validate_prompt(document.text)
                     if isinstance(verdict, str):
-                        raise ValidationError(
-                            message=verdict,
-                            cursor_position=len(document.text))
+                        raise ValidationError(message=verdict,
+                                              cursor_position=len(
+                                                  document.text))
                     elif verdict is not True:
-                        raise ValidationError(
-                            message='invalid input',
-                            cursor_position=len(document.text))
+                        raise ValidationError(message='invalid input',
+                                              cursor_position=len(
+                                                  document.text))
+
             kwargs['validator'] = _InputValidator()
         return kwargs['validator']
 
@@ -51,22 +53,22 @@ def setup_simple_validator(kwargs):
     # https://github.com/jonathanslenders/python-prompt-toolkit/issues/430
     validate = kwargs.pop('validate', None)
     if validate is None:
+
         def _always(answer):
             return True
+
         return _always
     elif not callable(validate):
-        raise ValueError('Here a simple validate function is expected, no class')
+        raise ValueError(
+            'Here a simple validate function is expected, no class')
 
     def _validator(answer):
         verdict = validate(answer)
         if isinstance(verdict, str):
-            raise ValidationError(
-                message=verdict
-                )
+            raise ValidationError(message=verdict)
         elif verdict is not True:
-            raise ValidationError(
-                message='invalid input'
-                )
+            raise ValidationError(message='invalid input')
+
     return _validator
 
 

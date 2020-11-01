@@ -6,14 +6,11 @@ from __future__ import print_function, unicode_literals
 from inquirer2 import prompt, print_json
 from style import custom_style_2
 
-
-questions = [
-    {
-        'type': 'password',
-        'message': 'Enter your git password',
-        'name': 'password'
-    }
-]
+questions = [{
+    'type': 'password',
+    'message': 'Enter your git password',
+    'name': 'password'
+}]
 
 answers = prompt.prompt(questions, style=custom_style_2)
 print_json(answers)

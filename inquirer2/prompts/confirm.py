@@ -7,6 +7,7 @@ from prompt_toolkit.shortcuts import PromptSession
 
 from .common import default_style
 
+
 def question(message, **kwargs):
     # TODO need ENTER confirmation
     default = kwargs.pop('default', True)
@@ -23,7 +24,8 @@ def question(message, **kwargs):
         tokens.append(('class:questionmark', qmark))
         tokens.append(('class:question', ' %s ' % message))
         if isinstance(status['answer'], bool):
-            tokens.append(('class:answer', ' Yes' if status['answer'] else ' No'))
+            tokens.append(
+                ('class:answer', ' Yes' if status['answer'] else ' No'))
         else:
             if default:
                 instruction = ' (Y/n)'

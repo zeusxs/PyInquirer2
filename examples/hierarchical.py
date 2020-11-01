@@ -17,11 +17,13 @@ def ask_direction():
     answers = prompt.prompt(directions_prompt)
     return answers['direction']
 
+
 # TODO better to use while loop than recursion!
 
 
 def main():
-    print('You find yourself in a small room, there is a door in front of you.')
+    print(
+        'You find yourself in a small room, there is a door in front of you.')
     exit_house()
 
 
@@ -29,7 +31,9 @@ def exit_house():
     direction = ask_direction()
     if (direction == 'Forward'):
         print('You find yourself in a forest')
-        print('There is a wolf in front of you; a friendly looking dwarf to the right and an impasse to the left.')
+        print(
+            'There is a wolf in front of you; a friendly looking dwarf to the right and an impasse to the left.'
+        )
         encounter1()
     else:
         print('You cannot go that way. Try again')
@@ -40,7 +44,9 @@ def encounter1():
     direction = ask_direction()
     if (direction == 'Forward'):
         print('You attempt to fight the wolf')
-        print('Theres a stick and some stones lying around you could use as a weapon')
+        print(
+            'Theres a stick and some stones lying around you could use as a weapon'
+        )
         encounter2b()
     elif (direction == 'Right'):
         print('You befriend the dwarf')
@@ -67,17 +73,20 @@ def encounter2a():
 
 
 def encounter2b():
-    prompt.prompt({
-        'type': 'list',
-        'name': 'weapon',
-        'message': 'Pick one',
-        'choices': [
-            'Use the stick',
-            'Grab a large rock',
-            'Try and make a run for it',
-            'Attack the wolf unarmed'
-        ]
-    }, style=custom_style_2)
+    prompt.prompt(
+        {
+            'type':
+            'list',
+            'name':
+            'weapon',
+            'message':
+            'Pick one',
+            'choices': [
+                'Use the stick', 'Grab a large rock',
+                'Try and make a run for it', 'Attack the wolf unarmed'
+            ]
+        },
+        style=custom_style_2)
     print('The wolf mauls you. You die. The end.')
 
 

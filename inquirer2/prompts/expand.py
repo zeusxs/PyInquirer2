@@ -16,8 +16,8 @@ from ..separator import Separator
 from .common import default_style
 from .common import if_mousedown
 
-
 # custom control based on FormattedTextControl
+
 
 class InquirerControl(FormattedTextControl):
     def __init__(self, choices, default=None, **kwargs):
@@ -37,7 +37,7 @@ class InquirerControl(FormattedTextControl):
                 self.choices.append(c)
             else:
                 if isinstance(c, str):
-                    self.choices.append((key, c, c))
+                    self.choices.append((None, c, c))
                 else:
                     key = c.get('key')
                     name = c.get('name')
@@ -77,19 +77,18 @@ class InquirerControl(FormattedTextControl):
                     self.pointer_index = index
 
                 if pointed_at:
-                    tokens.append(('class:focus', '  %s) %s' % (key, line),
-                                   select_item))
+                    tokens.append(
+                        ('class:focus', '  %s) %s' % (key, line), select_item))
                 else:
-                    tokens.append(('', '  %s) %s' % (key, line),
-                                   select_item))
+                    tokens.append(('', '  %s) %s' % (key, line), select_item))
                 tokens.append(('', '\n'))
 
         if self._help_active:
             # prepare the select choices
             for i, choice in enumerate(self.choices):
                 _append(i, choice)
-            tokens.append(('', '  Answer: %s' %
-                           self.choices[self.pointer_index][0]))
+            tokens.append(
+                ('', '  Answer: %s' % self.choices[self.pointer_index][0]))
         else:
             tokens.append(('class:pointer', '>> '))
             tokens.append(('', self.choices[self.pointer_index][1]))
@@ -132,9 +131,10 @@ def question(message, **kwargs):
 
     # assemble layout
     layout = HSplit([
-        Window(height=D.exact(1),
-               content=FormattedTextControl(get_prompt_tokens),
-               always_hide_cursor=True,
+        Window(
+            height=D.exact(1),
+            content=FormattedTextControl(get_prompt_tokens),
+            always_hide_cursor=True,
         ),
         ConditionalContainer(
             Window(ic, always_hide_cursor=True),
@@ -155,12 +155,14 @@ def question(message, **kwargs):
     # add key bindings for choices
     for i, c in enumerate(ic.choices):
         if not isinstance(c, Separator):
+
             def _reg_binding(i, keys):
                 # trick out late evaluation with a "function factory":
                 # http://stackoverflow.com/questions/3431676/creating-functions-in-a-loop
                 @kb.add(keys, eager=True)
                 def select_choice(event):
                     ic.pointer_index = i
+
             if c[0] not in ['h', 'H']:
                 _reg_binding(i, c[0])
                 if c[0].isupper():
@@ -180,9 +182,7 @@ def question(message, **kwargs):
             ic.answered = True
             event.app.exit(result=selected_value)
 
-    return Application(
-        layout=Layout(layout),
-        key_bindings=kb,
-        mouse_support=True,
-        style=style
-    )
+    return Application(layout=Layout(layout),
+                       key_bindings=kb,
+                       mouse_support=True,
+                       style=style)

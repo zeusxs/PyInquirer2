@@ -9,7 +9,6 @@ from inquirer2 import prompt, Separator
 from style import custom_style_2
 
 
-
 def get_delivery_options(answers):
     options = ['bike', 'car', 'truck']
     if answers['size'] == 'jumbo':
@@ -19,19 +18,18 @@ def get_delivery_options(answers):
 
 questions = [
     {
-        'type': 'list',
-        'name': 'theme',
-        'message': 'What do you want to do?',
+        'type':
+        'list',
+        'name':
+        'theme',
+        'message':
+        'What do you want to do?',
         'choices': [
-            'Order a pizza',
-            'Make a reservation',
-            Separator(),
-            'Ask for opening hours',
-            {
+            'Order a pizza', 'Make a reservation',
+            Separator(), 'Ask for opening hours', {
                 'name': 'Contact support',
                 'disabled': 'Unavailable at this time'
-            },
-            'Talk to the receptionist'
+            }, 'Talk to the receptionist'
         ]
     },
     {

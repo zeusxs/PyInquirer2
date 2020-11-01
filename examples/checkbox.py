@@ -16,7 +16,7 @@ questions = [
         'qmark': '?',
         'message': 'Select toppings',
         'name': 'toppings',
-        'choices': [ 
+        'choices': [
             Separator('= The Meats ='),
             {
                 'name': 'Ham'

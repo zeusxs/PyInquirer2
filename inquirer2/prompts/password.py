@@ -2,7 +2,7 @@
 """
 `password` type question
 """
-from . import input 
+from . import input
 
 # use std prompt-toolkit control
 

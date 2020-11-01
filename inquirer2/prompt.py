@@ -8,7 +8,6 @@ from prompt_toolkit.shortcuts import PromptSession
 from prompt_toolkit.application import Application
 
 
-
 def prompt(questions, answers=None, **kwargs):
     from . import prompts
 
@@ -67,9 +66,9 @@ def prompt(questions, answers=None, **kwargs):
             if callable(question.get('default')):
                 _kwargs['default'] = question['default'](answers)
 
-            with pt_patch_stdout() if patch_stdout else _dummy_context_manager():
+            with pt_patch_stdout() if patch_stdout else _dummy_context_manager(
+            ):
                 result = getattr(prompts, type_).question(message, **_kwargs)
-
 
                 if isinstance(result, PromptSession):
                     answer = result.prompt()
@@ -90,8 +89,8 @@ def prompt(questions, answers=None, **kwargs):
                         answer = question['filter'](answer)
                     except Exception as e:
                         raise ValueError(
-                            'Problem processing \'filter\' of %s question: %s' %
-                            (name, e))
+                            'Problem processing \'filter\' of %s question: %s'
+                            % (name, e))
                 answers[name] = answer
         except AttributeError as e:
             print(e)
@@ -106,9 +105,11 @@ def prompt(questions, answers=None, **kwargs):
             return {}
     return answers
 
+
 @contextmanager
 def _dummy_context_manager():
     yield
+
 
 # TODO:
 # Bottom Bar - inquirer.ui.BottomBar
