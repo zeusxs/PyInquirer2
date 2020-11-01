@@ -11,10 +11,12 @@ on:
 
 jobs:
   python36:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
+      max-parallel: 2
       matrix:
-        python-version: [3.6]
+        os: [macos-latest, ubuntu-lastest, centos-lastest]      
+        python-version: [3.6, 3.7, 3.8]
 
     steps:
     - uses: actions/checkout@v2
