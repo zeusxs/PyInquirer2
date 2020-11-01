@@ -13,16 +13,10 @@ PythonInquirer
 
 **Github is starting to invite developers in from the GitHub Sponsors waitlist!**
 
-Your recommendations matter, so be sure to nominate `me and other contributors <https://github.com/CITGuru/PyInquirer/graphs/contributors>`__ of this project you'd like to see on GitHub Sponsors next by using the form in this link: http://github.co/2IHdeOw
-
 PyInquirer2 is fork from PyInquirer, PyInquirer is a collection of common interactive command line user interfaces. 
-
 
 PyInquirer2 is comming! 
 -----------------
-
-`PyInquirer2 <https://github.com/CITGuru/PyInquirer/releases/tag/1.0.3>`
-
 
 Table of Contents
 -----------------
@@ -80,7 +74,7 @@ You can correct that by doing
 
 .. code:: shell
 
-    pip install prompt_toolkit==1.0.14
+    pip install prompt_toolkit==3.0.8
 
 or download the wheel file from here:
 
