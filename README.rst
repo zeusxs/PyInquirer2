@@ -1,19 +1,11 @@
-PythonInquirer
+PyInquirer2
 ==============
-.. image:: https://opencollective.com/pyinquirer/backers/badge.svg
-    :alt: Backers on Open Collective
-    :target: #backers
-
-.. image:: https://opencollective.com/pyinquirer/sponsors/badge.svg
-    :alt: Sponsors on Open Collective
-    :target: #sponsors
-
 .. image:: https://travis-ci.org/expobrain/PyInquirer.svg?branch=master
     :target: https://travis-ci.org/expobrain/PyInquirer
 
 **Github is starting to invite developers in from the GitHub Sponsors waitlist!**
 
-PyInquirer2 is fork from PyInquirer, PyInquirer is a collection of common interactive command line user interfaces. 
+PyInquirer2 is fork from `PyInquirer <https://github.com/CITGuru/PyInquirer>`, PyInquirer2 is a collection of common interactive command line user interfaces. 
 
 PyInquirer2 is comming! 
 -----------------
@@ -47,15 +39,21 @@ that its feature-set is the most complete for building immersive CLI
 applications. We also hope that **PyInquirer** proves itself useful
 to Python users.
 
-**PyInquirer** should ease the process of - providing *error
+**PyInquirer2** should ease the process of - providing *error
 feedback* - *asking questions* - *parsing* input - *validating* answers
 - managing *hierarchical prompts
 
-**Note:** **PyInquirer** provides the user interface and the inquiry
+**Note:** **PyInquirer2** provides the user interface and the inquiry
 session flow. >
 
 Documentation
 -------------
+
+
+Require
+~~~~~~~
+Python >= 3.6
+prompt_toolkit >= 3.0
 
 Installation
 ~~~~~~~~~~~~
@@ -80,7 +78,7 @@ or download the wheel file from here:
 
 .. code:: shell
 
-    https://pypi.org/project/prompt_toolkit/1.0.14/#files
+    https://pypi.org/project/prompt_toolkit/3.0.8/#files
 
 Quickstart
 ~~~~~~~~~~
