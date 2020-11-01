@@ -177,7 +177,7 @@ class SimplePty(PtyProcess):
               dimensions=(24, 80),
               skip_cr=True,
               skip_ansi=True,
-              timeout=30.0):
+              timeout=120.0):
         """
 
         :param argv:
