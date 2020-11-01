@@ -177,7 +177,7 @@ class SimplePty(PtyProcess):
               dimensions=(24, 80),
               skip_cr=True,
               skip_ansi=True,
-              timeout=10.0):
+              timeout=30.0):
         """
 
         :param argv:
@@ -222,7 +222,7 @@ class SimplePty(PtyProcess):
                     break
             else:
                 # do not eat up CPU when waiting for the timeout to expire
-                time.sleep(self.timeout / 10)
+                time.sleep(self.timeout / 100)
         #print(repr(buf))  # debug ansi code handling
         assert buf == text
 
