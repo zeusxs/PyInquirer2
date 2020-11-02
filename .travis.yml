@@ -9,7 +9,7 @@ python:
 
 before_install:
   # Strangely enough numpy is already installed on Travis's VMs
-  - pip install -r requirements_dev.txt
+  - pip install -r requirements.txt.dev
 
 install:
   - pip install -e .

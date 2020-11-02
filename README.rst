@@ -1,7 +1,7 @@
 PyInquirer2
 ==============
-.. image:: https://travis-ci.org/expobrain/PyInquirer.svg?branch=master
-    :target: https://travis-ci.org/expobrain/PyInquirer
+.. image:: https://travis-ci.org/zeusxs/PyInquirer2.svg?branch=main
+    :target: https://travis-ci.org/zeusxs/PyInquirer2
 
 **Github is starting to invite developers in from the GitHub Sponsors waitlist!**
 
