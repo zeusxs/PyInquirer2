@@ -2,8 +2,11 @@ language: python
 
 cache: pip
 
+os:
+  - osx
+  - linux
+  
 python:
-  - 3.6
   - 3.7
   - 3.8
 
