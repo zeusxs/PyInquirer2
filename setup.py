@@ -40,7 +40,7 @@ setup(
     packages=find_packages(exclude=['docs', 'tests*']),
     include_package_data=True,
     author='pengbin.xyz',
-    download_url='https://github.com/CITGuru/PyInquirer/archive/1.0.3.tar.gz',
+    download_url='https://github.com/zeusxs/PyInquirer2/archive/refs/tags/v1.0.0.tar.gz',
     install_requires=install_requires,
     dependency_links=dependency_links,
     author_email='pengbin.xyz@gmail.com',
