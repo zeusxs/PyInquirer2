@@ -70,7 +70,7 @@ class InquirerControl(FormattedTextControl):
                 # bind option with this index to mouse event
                 self.selected_option_index = index
                 self.answered = True
-                get_app().exit(result=self.get_selection()[0])
+                get_app().exit(result=self.get_selection()[1])
 
             if isinstance(choice[0], Separator):
                 tokens.append(('class:separator', '  %s\n' % choice[0]))
